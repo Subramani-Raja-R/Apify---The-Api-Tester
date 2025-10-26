@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apify - API tester</title>
+    <link rel="stylesheet" href="tester.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Apify</h1>
+      <nav class="MenuItems">
+        <p style="cursor: pointer" id="logoutButton">Logout</p>
+      </nav>
+    </div>
+
+    <div id="background-pattern" aria-hidden="true"></div>
+
+    <main class="app-container">
+      <aside class="history-pane">
+        <div class="card">
+          <div class="pane-actions">
+            <button class="btn-new-request">New HTTP Request</button>
+          </div>
+
+          <div class="pane-main-toggles">
+            <button class="active" data-view="collections">Collections</button>
+            <button data-view="history">History</button>
+          </div>
+
+          <div class="pane-search-actions">
+            <div class="search-bar">
+              <svg
+                class="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" placeholder="Search collections..." />
+            </div>
+            <button class="btn-icon" title="Create New Collection">
+              <svg
+                class="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+
+          <ul class="collection-list">
+            <li class="collection-item">
+              <details>
+                <summary>
+                  <span class="collection-item__folder">📁</span>
+                  <span>User Management API</span>
+                </summary>
+                <ul>
+                  <li class="history-item">
+                    <div class="history-item__main">
+                      <span class="history-item__method method-get">GET</span>
+                      <span>Get All Users</span>
+                    </div>
+                  </li>
+                  <li class="history-item">
+                    <div class="history-item__main">
+                      <span class="history-item__method method-post">POST</span>
+                      <span>Create User</span>
+                    </div>
+                  </li>
+                </ul>
+              </details>
+            </li>
+
+            <li class="collection-item">
+              <details>
+                <summary>
+                  <span class="collection-item__folder">📁</span>
+                  <span>Products API</span>
+                </summary>
+              </details>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="request-pane">
+        <div class="card">
+          <div class="request-pane-header">
+            <h2 class="card-title">Request Builder</h2>
+            <button class="btn-save">Save</button>
+          </div>
+
+          <div class="request-input-bar">
+            <select>
+              <option>GET</option>
+              <option>POST</option>
+              <option>PUT</option>
+              <option>PATCH</option>
+              <option>DELETE</option>
+            </select>
+            <input type="text" placeholder="https://api/users" />
+            <button class="btn-send">
+              <svg
+                class="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>Send</span>
+            </button>
+          </div>
+
+          <nav class="tabs">
+            <button class="tab-btn active" data-tab="params">Params</button>
+            <button class="tab-btn" data-tab="headers">Headers</button>
+            <button class="tab-btn" data-tab="body">Body</button>
+          </nav>
+
+          <div class="tab-content-container">
+            <div class="tab-content" id="params-content">
+              Key-value editor for Query Params will go here.
+            </div>
+
+            <div class="tab-content" id="headers-content" style="display: none">
+              Key-value editor for Headers will go here.
+            </div>
+            <div class="tab-content" id="body-content" style="display: none">
+              Editor for the request body will go here.
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="response-pane">
+        <div class="card">
+          <div class="response-header">
+            <h2 class="card-title" style="margin-bottom: 0">Response</h2>
+            <div class="response-header-actions">
+              <button>Copy</button>
+              <button>Download</button>
+            </div>
+          </div>
+          <div class="response-meta">
+            <span class="meta-item meta-item-status">
+              <span class="status-dot"></span>
+              <span><b>0</b> Network Error</span>
+            </span>
+            <span class="meta-item">Time: <b>532ms</b></span>
+            <span class="meta-item">Size: <b>0 bytes</b></span>
+          </div>
+          <nav class="tabs">
+            <button class="tab-btn active">Body</button>
+            <button class="tab-btn">Headers</button>
+            <button class="tab-btn">Cookies</button>
+          </nav>
+          <div class="response-body-container">
+            <pre><code>{
+  "error": "failed to fetch"
+}
+            </code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./main.js"></script>
+    <script src="./login.js"></script>
+  </body>
+</html>

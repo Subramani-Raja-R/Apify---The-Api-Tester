@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <section class="login-page">
+      <div id="background-pattern" aria-hidden="true"></div>
+
+      <div class="login-container">
+        <a class="login-register-link" href="./index.html"
+          ><i class="fa fa-angle-left"></i
+        ></a>
+
+        <h1>Apify</h1>
+        <h1>Login</h1>
+
+        <form id="loginForm">
+          <p class="input-title">Email :</p>
+          <input
+            type="email"
+            placeholder="Type Your Email"
+            name="email"
+            required
+          />
+
+          <p class="input-title">Password :</p>
+          <input
+            type="password"
+            placeholder="Type Your Password"
+            name="password"
+            required
+          />
+
+          <button type="submit">Login</button>
+        </form>
+
+        <div id="login-register">
+          <p>Or Signup Using</p>
+          <h4>
+            <a id="login-reg-btn" href="./register.html"> Register </a>
+          </h4>
+        </div>
+      </div>
+    </section>
+
+    <script src="./main.js"></script>
+    <script src="./login.js"></script>
+  </body>
+</html>
