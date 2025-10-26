@@ -2,7 +2,7 @@
 Apify - A Modern API Tester
 A sleek and modern, browser-based API testing client designed for developers. Inspired by professional tools like Postman and Insomnia, Apify aims to provide a fast, clean, and intuitive interface to craft, send, and analyze HTTP requests directly in your browser.
 
-(Replace this with a screenshot of your own application interface)
+![Apify Landing Page](./frontend/images/Apify-landing-page.png)
 
 About The Project
 In today's development landscape, interacting with APIs is a daily task. Apify was created to streamline this process, offering a lightweight and accessible alternative to heavy desktop applications. It provides the core functionality needed to test and debug APIs effectively, with a focus on a clean user experience and organized workflow.
